@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0 minimum-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+
+
+   <div class="header">
+     <nav>
+          <ul class="navbar">
+            <li class="navitem"><a href="index.html"><strong>Homepage</strong></a></li>
+            <li class="navitem"><a href=""><strong>Works</strong></a></li>
+            <li class="navitem"><a href=""><strong>Resume</strong></a></li>
+          </ul>
+
+<!-- 變色邊框 -->
+     </nav>
+     <div class="logo">
+       <strong>Jacky's Works</strong>
+     </div>
+   </div>
+
+   <div class="container">
+        <div class="section1"><span id="i1"></span></div>
+        <div class="section2"><span id="i2"></span></div>
+        <div class="section3"><span id="i3"></span></div>
+   </div>
+
+   <div class="footer">
+
+   </div>
+
+   <script>
+   $(window).scroll(function () {
+      var scrollVal = $(this).scrollTop();
+      var section1Top = $('.section1').offset().top;
+      var section2Top = $('.section2').offset().top;
+      var section3Top = $('.section3').offset().top;
+      var windowHeigt= document.documentElement.clientHeight;
+      if(document.documentElement.clientWidth>750){
+        if(section1Top-scrollVal<=100){//230
+
+            $('.section1').css('height','45%');
+        }
+            $('#i1').text((scrollVal));
+                  $('#i2').text((section2Top-scrollVal*1.5))
+                              $('#i3').text((section3Top-scrollVal*1.5));
+        if(section2Top-scrollVal*1.5<=100){//630
+
+            $('.section2').css('height','45%');
+
+
+        }
+        if(section3Top-scrollVal*2<=100){//1030
+
+            $('.section3').css('height','45%');
+
+        }
+      }
+        else if(document.documentElement.clientWidth<750){
+          if(section1Top-scrollVal<=50){//230
+
+              $('.section1').css('height','45%');
+          }
+              $('#i1').text((scrollVal));
+                    $('#i2').text((section2Top-scrollVal*1.5))
+                                $('#i3').text((section3Top-scrollVal*2));
+          if(section2Top-scrollVal*1.5<=50){//630
+
+              $('.section2').css('height','45%');
+
+
+          }
+          if(section3Top-scrollVal*1.5<=50){//1030
+
+              $('.section3').css('height','45%');
+
+          }
+        }
+      
+
+
+    });
+
+
+   </script>
+</body>
+</html>
